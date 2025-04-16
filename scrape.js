@@ -47,10 +47,10 @@ async function scrapeInstagramProfile(page, username) {
       };
     });
 
-    console.log(`✅ Scraped Data for @${username}:`, profileData);
+    console.log(`Scraped Data for @${username}:`, profileData);
     return { username, ...profileData };
   } catch (err) {
-    console.error(`❌ Error scraping @${username}:`, err.message);
+    console.error(`Error scraping @${username}:`, err.message);
     return { username, error: err.message };
   }
 }
@@ -82,8 +82,8 @@ async function scrapeMultipleUsers(usernames) {
   const fs = require("fs");
   fs.writeFileSync("scraped_users.json", JSON.stringify(results, null, 2));
 
-  console.log(`📝 Saved all data to scraped_users.json`);
+  console.log(`Saved all data to scraped_users.json`);
 }
 
-// ✅ Call with list of usernames
+// Call with list of usernames
 scrapeMultipleUsers(["natgeo", "instagram", "cristiano", "dr_merhawi"]);
